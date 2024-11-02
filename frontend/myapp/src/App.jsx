@@ -14,6 +14,7 @@ import { cardPush } from "./Redux/Slice/CartSlice";
 import { useDispatch } from "react-redux";
 import { setWishList } from "./Redux/Slice/WishlistSlice";
 import NotFound from "./Components/NotFound/NotFound";
+import PaymentPage from "./Components/paymentPage/PayementPage";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -93,6 +94,7 @@ const App = () => {
           <Route path="user/register" element={<Register />} />
           <Route path="user/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/paymentPage" element={<PaymentPage />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -22,9 +22,11 @@ const login = async (req, res, next) => {
     if (!passMatching) {
       res.status(401).json({ message: "Something went wrong !" });
     } else {
-      var token = jwt.sign({ payload: userAvail._id }, process.env.SECREATKEY, {
+      var token = jwt.sign({ payload: userAvail._id , email : userAvail.email, mobile : userAvail.mobile}, process.env.SECREATKEY, {
         expiresIn: "1d",
       });
+      // console.log(jwt.verify(token, process.env.SECREATKEY));
+      
       return res
         .cookie("token", token, {
           maxAge: 1 * 24 * 60 * 60 * 1000,
